@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "bfc3b5ae-8d51-4d72-bc30-2394ae5dd004",
+		"name": "social-net",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13898040"
+	},
+	"item": [
+		{
+			"name": "sign-up",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "admin",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"email@gmail.com\",\n    \"password\": \"password\",\n    \"first_name\": \"User name\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"email@gmail.com\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1MTA0ODI5LCJpYXQiOjE3MjUxMDQ1MjksImp0aSI6IjExY2MzMGFlMGFlNTQ1ODhhNmM4MTUyMjE0ODM0YTBjIiwidXNlcl9pZCI6MX0.gdvDI_wrnpd17qGBAN6JxDU9yr5HQWbRirMQQRr9baQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/search?q=email@gmail.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "email@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send-friend-request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1MTIxNTUyLCJpYXQiOjE3MjUxMjEyNTIsImp0aSI6Ijg5OTNkOGRiZjJlMjQzMjE5Y2E0N2M3MGZjMmY3YTU0IiwidXNlcl9pZCI6Mn0.TK9ZM8q9mQM7og1DZ_TSD2rcVx2qqxZs4vTidMMXohs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"to_user\": 6\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/friend-request",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"friend-request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "accept-friend-request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1MTIxNTUyLCJpYXQiOjE3MjUxMjEyNTIsImp0aSI6Ijg5OTNkOGRiZjJlMjQzMjE5Y2E0N2M3MGZjMmY3YTU0IiwidXNlcl9pZCI6Mn0.TK9ZM8q9mQM7og1DZ_TSD2rcVx2qqxZs4vTidMMXohs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from_user\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/friend-request/1/accept",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"friend-request",
+						"1",
+						"accept"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "friend-request-reject",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1MTIyMDI4LCJpYXQiOjE3MjUxMjE3MjgsImp0aSI6IjNmNmMwN2IyZDAwYjQyNTI4YzhhYmM2ODU5OWI2MTFiIiwidXNlcl9pZCI6M30.Y_hFrhSJxJKdk-BZZG7OWoF_6PBtLk1q9xbk057n340",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from_user\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/friend-request/3/reject",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"friend-request",
+						"3",
+						"reject"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "friends-list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1MTIyOTU3LCJpYXQiOjE3MjUxMjI2NTcsImp0aSI6IjBlZjQ4OTY0YTg3NDRiMzg4YmQxNjBmZmIzMTQ3ZWI2IiwidXNlcl9pZCI6Mn0.ZfxvPuV-asD-wsQUriVC-UE6abG01CIixp1DNc75lEA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/friends-list",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"friends-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list-pending-requests",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1MTIzMzcyLCJpYXQiOjE3MjUxMjMwNzIsImp0aSI6IjFiOTQ0MjliNjI2ODQ5NzA4MGQ3MzY0MzhmOTJlZTllIiwidXNlcl9pZCI6NH0.vFqdhGsBAQPXQOvQ92_fkkqUwi1YzH-ny27FuS7W5fM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/pending-requests",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pending-requests"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
